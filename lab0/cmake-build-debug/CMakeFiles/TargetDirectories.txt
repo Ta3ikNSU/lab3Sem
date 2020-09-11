@@ -1,0 +1,3 @@
+/home/ta3ik/CLionProjects/lab1_Sem2nd/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ta3ik/CLionProjects/lab1_Sem2nd/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ta3ik/CLionProjects/lab1_Sem2nd/cmake-build-debug/CMakeFiles/lab1_Sem2nd.dir

@@ -30,16 +30,23 @@ void countWord::readingAndCounting() {
     std::string buffer, newWord;
     bool prevSymbolIsSep = true;
     while (getline(fin, buffer)) {
-        for (int i = 0; i < buffer.size(); i++) {
+        for (int i = 0; i <= buffer.size()-1; i++) {
             char curSymbol = buffer[i];
             if (isDigit(curSymbol) || isLetter(curSymbol)) {
                 if (prevSymbolIsSep == true) count++;
                 prevSymbolIsSep = false;
                 newWord += curSymbol;
+                if(i == buffer.size()-1){
+                    wordMap[newWord]++;
+                    newWord = "";
+                }
             } else {
+                if(prevSymbolIsSep == false) {
+                    wordMap[newWord]++;
+                    newWord = "";
+                }
                 prevSymbolIsSep = true;
-                wordMap[newWord]++;
-                newWord = "";
+
             }
         }
     }
@@ -61,7 +68,7 @@ void countWord::sortDataAndWriteToCSV() {
 void countWord::writeToCSV(std::list<std::pair<std::string, int>> listPair) {
     std::list<std::pair<std::string, int>>::iterator it;
     for (it = listPair.begin(); it != listPair.end(); it++) {
-        fout << it->first << " " << it->second << " " << floor((double) it->second / double(count) * 100 + 0.05)
+        fout << it->first << " " << it->second << " " << floor((double) it->second / double(count) * 1000000 + 0.5)/10000.0
              << std::endl;
     }
 }
@@ -73,7 +80,7 @@ bool countWord::isDigit(char a) {
 }
 
 bool countWord::isLetter(char a) {
-    if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z') return true;
+    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) return true;
     else return false;
 }
 
