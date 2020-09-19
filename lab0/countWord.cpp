@@ -6,27 +6,32 @@
 #include <cmath>
 #include "countWord.h"
 
+bool isDigit(char a) {
+    if (a >= '0' && a <= '9') return true;
+    else return false;
+}
+
+bool isLetter(char a) {
+    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) return true;
+    else return false;
+}
+
+bool compare(const std::pair<std::string, int> &arg1, const std::pair<std::string, int> &arg2) {
+    if (arg1.second > arg2.second) return true;
+    else return false;
+}
+
 
 countWord::countWord() {
     count = 0;
 }
 
-void countWord::openStream(char **argv) {
-    fin.open(argv[1], std::ios::in);
-    fout.open(argv[2], std::ios::out);
-}
-
-void countWord::mainMethod() {
-    readingAndCounting();
-    sortDataAndWriteToCSV();
-}
-
-void countWord::closeStream() {
-    fin.close();
-    fout.close();
-}
-
-void countWord::readingAndCounting() {
+void countWord::readingAndCounting(std::string nameInputFile) {
+    std::ifstream fin;
+    fin.open( nameInputFile, std::ios::in);
+    if(!fin){
+        throw std::invalid_argument("input file not found");
+    }
     std::string buffer, newWord;
     bool prevSymbolIsSep = true;
     while (getline(fin, buffer)) {
@@ -50,44 +55,39 @@ void countWord::readingAndCounting() {
             }
         }
     }
+    fin.close();
 }
 
-void countWord::sortDataAndWriteToCSV() {
+void countWord::sortDataAndWriteToCSV(std::string nameOutputFile) {
+
     std::list<std::pair<std::string, int>> listPair;
     std::map<std::string, int>::iterator it;
     for (it = wordMap.begin(); it != wordMap.end(); it++) {
         std::pair<std::string, int> dataToList;
         dataToList.first = it->first;
         dataToList.second = it->second;
-        listPair.push_front(dataToList);
+        listPair.push_back(dataToList);
     }
-    listPair.sort(countWord::compare);
-    writeToCSV(listPair);
+    listPair.sort(compare);
+    writeToCSV(listPair, nameOutputFile);
 }
 
-void countWord::writeToCSV(std::list<std::pair<std::string, int>> listPair) {
+void countWord::writeToCSV(std::list<std::pair<std::string, int>> listPair, std::string nameOutputFile) {
+    std::ofstream fout;
+    fout.open( nameOutputFile, std::ios::out);
+    if(!fout){
+        throw std::invalid_argument("output file not open");
+    }
     std::list<std::pair<std::string, int>>::iterator it;
     for (it = listPair.begin(); it != listPair.end(); it++) {
-        fout << it->first << " " << it->second << " " << floor((double) it->second / double(count) * 1000000 + 0.5)/10000.0
+        fout << it->first << "," << it->second << "," << floor((double) it->second / double(count) * 1000000 + 0.5)/10000.0
              << std::endl;
     }
+    fout.close();
 }
 
 
-bool countWord::isDigit(char a) {
-    if (a >= '0' && a <= '9') return true;
-    else return false;
-}
 
-bool countWord::isLetter(char a) {
-    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) return true;
-    else return false;
-}
-
-bool countWord::compare(const std::pair<std::string, int> &arg1, const std::pair<std::string, int> &arg2) {
-    if (arg1.second > arg2.second) return true;
-    else return false;
-}
 
 
 

@@ -15,32 +15,18 @@ class countWord {
 
     int count;
     std::map<std::string, int> wordMap;
-    std::ifstream fin;
-    std::ofstream fout;
 
 public:
 
     countWord();
 
-    void openStream(char **argv);
+    void readingAndCounting(std::string nameInputFile);
 
-    void mainMethod();
-
-    void closeStream();
+    void sortDataAndWriteToCSV(std::string nameOutputFile);
 
 private:
 
-    void readingAndCounting();
-
-    void sortDataAndWriteToCSV();
-
-    void writeToCSV(std::list<std::pair<std::string, int>> listPair);
-
-    static bool isLetter(char a);
-
-    static bool isDigit(char a);
-
-    static bool compare(const std::pair<std::string, int> &arg1, const std::pair<std::string, int> &arg2);
+    void writeToCSV(std::list<std::pair<std::string, int>> listPair,std::string nameOutputFile);
 };
 
 
