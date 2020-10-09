@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/lab1Sem3.dir/main.cpp.o CMakeFiles/lab1Sem3.dir/MyDLL.cpp.o  -o lab1Sem3 
