@@ -1,0 +1,5 @@
+hello,2,0
+not,2,0
+bye,1,0
+help,1,0
+not2,1,0
