@@ -56,15 +56,29 @@ bool test4(){
     return(true);
 }
 
-bool test2(){
+bool test5(){
     LinkedList l1 = LinkedList();
-    for(int i = 0; i<10;i++){
+    for(int i = 1; i<10;i++){
         l1.push_back(i);
     }
-    LinkedList::iterator k = l1.end();
-    k--;
-    if(*k == 8) return(true);
+    LinkedList::iterator k = l1.begin();
+    for(; *k !=5; k++){}
+    l1.insert(k,15);
+    if(*(--k)==15) return true;
     return(false);
+}
+
+bool test6(){
+    LinkedList l1 = LinkedList();
+    for(int i = 1; i<10;i++){
+        l1.push_back(i);
+    }
+    LinkedList::iterator it1 = l1.begin();
+    LinkedList::iterator it2 = l1.end();
+    it2--;
+    l1.erase(it1,it2);
+    if(l1.size() == 2) return true;
+    return false;
 }
 
 TEST_CASE(){
@@ -72,6 +86,8 @@ TEST_CASE(){
     REQUIRE(test2()==true);
     REQUIRE(test3()==true);
     REQUIRE(test4()==true);
+    REQUIRE(test5()==true);
+    REQUIRE(test6()==true);
 }
 
 

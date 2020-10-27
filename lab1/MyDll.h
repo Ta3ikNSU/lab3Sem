@@ -166,7 +166,7 @@ public:
     void push_front(const value_type &value);
 
     //Вставляет значение value перед элементом, на который указывает before
-    iterator insert(iterator before, const value_type &value);
+    iterator insert(iterator &before, const value_type &value);
 
     /* Операторы внутренние */
     //Присоединяет other к списку.
