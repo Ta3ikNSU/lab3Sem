@@ -8,13 +8,6 @@
 
 typedef int value_type;
 
-struct test{
-private:
-    int hui;
-public:
-    std::string hui4ik;
-};
-
 class LinkedList {
 private:
     struct _List {

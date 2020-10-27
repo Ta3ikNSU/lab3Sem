@@ -97,8 +97,10 @@ void LinkedList::pop_back() {
         throw std::logic_error("list is empty");
     }
     auto rem = this->endOfList->prev;
-    this->endOfList->prev->prev->next = this->endOfList;
-    this->endOfList->prev = this->endOfList->prev->prev;
+    endOfList->prev->prev->next = endOfList->next;
+    endOfList->prev = endOfList->prev->prev;
+    endOfList->next ->prev = endOfList->prev;
+    _size--;
     delete rem;
 }
 
@@ -107,27 +109,43 @@ void LinkedList::pop_front() {
         throw std::logic_error("list is empty");
     }
     auto rem = this->endOfList->next;
-    this->endOfList->next->next->prev = this->endOfList;
-    this->endOfList->next = this->endOfList->next->next;
+    endOfList->next->next->prev = endOfList->prev;
+    endOfList->prev->next = endOfList->next;
+    endOfList->next = endOfList->next->next;
     _size--;
     delete rem;
 }
 
 void LinkedList::push_back(const value_type &value) {
     auto newEl = new _List(value);
-    newEl->next = this->endOfList;
-    newEl->prev = this->endOfList->prev;
-    this -> endOfList->prev->next = newEl;
-    this -> endOfList->prev = newEl;
+    if(_size!=0) {
+        newEl->next = endOfList->next;
+        newEl->prev = endOfList->prev;
+        endOfList->prev->next = newEl;
+        endOfList->prev = newEl;
+        endOfList->next->prev = newEl;
+    }else{
+        newEl->next = newEl;
+        newEl->prev = newEl;
+        endOfList->prev = newEl;
+        endOfList->next = newEl;
+    }
     _size++;
 }
 
 void LinkedList::push_front(const value_type &value) {
     auto newEl = new _List(value);
-    newEl->next = this -> endOfList -> next;
-    newEl->prev = this -> endOfList;
-    this -> endOfList->next->prev = newEl;
-    this -> endOfList->next = newEl;
+    if(_size != 0) {
+        newEl->next = endOfList->next;
+        newEl->prev = endOfList->prev;
+        endOfList->prev->next = newEl;
+        endOfList->next = newEl;
+    } else{
+        newEl->next = newEl;
+        newEl->prev = newEl;
+        endOfList->prev = newEl;
+        endOfList->next = newEl;
+    }
     _size++;
 }
 

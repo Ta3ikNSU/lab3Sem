@@ -38,18 +38,20 @@ value_type *LinkedList::iterator::operator->() {
 
 LinkedList::iterator &LinkedList::iterator::operator++() {
     this->node = node->next;
+    this->value = this->node->value;
     return (*this);
 }
 
 LinkedList::iterator LinkedList::iterator::operator++(int) {
-    LinkedList::iterator it;
-    it.node = this->node;
-    this->node = node->next;
+    LinkedList::iterator it = LinkedList::iterator(this->node);
+    this->node = this->node->next;
+    this->value = this->node->value;
     return (it);
 }
 
 LinkedList::iterator &LinkedList::iterator::operator--() {
     this->node = node->prev;
+    this->value = this->node->value;
     return (*this);
 }
 
@@ -57,6 +59,7 @@ LinkedList::iterator LinkedList::iterator::operator--(int) {
     LinkedList::iterator it;
     it.node = this->node;
     this->node = node->prev;
+    this->value = this->node->value;
     return (it);
 }
 
@@ -89,7 +92,7 @@ LinkedList::iterator LinkedList::erase(LinkedList::iterator begin, LinkedList::i
 }
 
 LinkedList::iterator LinkedList::insert(LinkedList::iterator before, const value_type &value) {
-    _List* newList =new _List(value);
+    _List* newList = new _List(value);
     newList->next = before.node;
     newList->prev = (--before).node;
     (--before.node)->next = newList;
