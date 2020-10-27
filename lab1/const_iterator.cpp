@@ -65,8 +65,3 @@ LinkedList::const_iterator LinkedList::cbegin() const {
 LinkedList::const_iterator LinkedList::cend() const {
     return(LinkedList::const_iterator(endOfList->prev));
 }
-
-
-
-
-

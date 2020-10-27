@@ -67,10 +67,10 @@ RM = C:\Users\Ta3ik\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.7660.37\
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Ta3ik\CLionProjects\lab1
+CMAKE_SOURCE_DIR = C:\Users\Ta3ik\CLionProjects\untitled1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Ta3ik\CLionProjects\lab1\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Ta3ik\CLionProjects\untitled1\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ta3ik\CLionProjects\lab1\cmake-build-debug\CMakeFiles C:\Users\Ta3ik\CLionProjects\lab1\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ta3ik\CLionProjects\untitled1\cmake-build-debug\CMakeFiles C:\Users\Ta3ik\CLionProjects\untitled1\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ta3ik\CLionProjects\lab1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ta3ik\CLionProjects\untitled1\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,44 +130,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab1
+# Target rules for targets named untitled1
 
 # Build rule for target.
-lab1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab1
-.PHONY : lab1
+untitled1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 untitled1
+.PHONY : untitled1
 
 # fast build rule for target.
-lab1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/build
-.PHONY : lab1/fast
+untitled1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/build
+.PHONY : untitled1/fast
 
-MyDll.obj: MyDll.cpp.obj
+MyDLL.obj: MyDLL.cpp.obj
 
-.PHONY : MyDll.obj
+.PHONY : MyDLL.obj
 
 # target to build an object file
-MyDll.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/MyDll.cpp.obj
-.PHONY : MyDll.cpp.obj
+MyDLL.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/MyDLL.cpp.obj
+.PHONY : MyDLL.cpp.obj
 
-MyDll.i: MyDll.cpp.i
+MyDLL.i: MyDLL.cpp.i
 
-.PHONY : MyDll.i
+.PHONY : MyDLL.i
 
 # target to preprocess a source file
-MyDll.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/MyDll.cpp.i
-.PHONY : MyDll.cpp.i
+MyDLL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/MyDLL.cpp.i
+.PHONY : MyDLL.cpp.i
 
-MyDll.s: MyDll.cpp.s
+MyDLL.s: MyDLL.cpp.s
 
-.PHONY : MyDll.s
+.PHONY : MyDLL.s
 
 # target to generate assembly for a file
-MyDll.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/MyDll.cpp.s
-.PHONY : MyDll.cpp.s
+MyDLL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/MyDLL.cpp.s
+.PHONY : MyDLL.cpp.s
 
 _List.obj: _List.cpp.obj
 
@@ -175,7 +175,7 @@ _List.obj: _List.cpp.obj
 
 # target to build an object file
 _List.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/_List.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/_List.cpp.obj
 .PHONY : _List.cpp.obj
 
 _List.i: _List.cpp.i
@@ -184,7 +184,7 @@ _List.i: _List.cpp.i
 
 # target to preprocess a source file
 _List.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/_List.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/_List.cpp.i
 .PHONY : _List.cpp.i
 
 _List.s: _List.cpp.s
@@ -193,7 +193,7 @@ _List.s: _List.cpp.s
 
 # target to generate assembly for a file
 _List.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/_List.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/_List.cpp.s
 .PHONY : _List.cpp.s
 
 catch.obj: catch.cpp.obj
@@ -202,7 +202,7 @@ catch.obj: catch.cpp.obj
 
 # target to build an object file
 catch.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/catch.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/catch.cpp.obj
 .PHONY : catch.cpp.obj
 
 catch.i: catch.cpp.i
@@ -211,7 +211,7 @@ catch.i: catch.cpp.i
 
 # target to preprocess a source file
 catch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/catch.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/catch.cpp.i
 .PHONY : catch.cpp.i
 
 catch.s: catch.cpp.s
@@ -220,7 +220,7 @@ catch.s: catch.cpp.s
 
 # target to generate assembly for a file
 catch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/catch.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/catch.cpp.s
 .PHONY : catch.cpp.s
 
 const_iterator.obj: const_iterator.cpp.obj
@@ -229,7 +229,7 @@ const_iterator.obj: const_iterator.cpp.obj
 
 # target to build an object file
 const_iterator.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/const_iterator.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/const_iterator.cpp.obj
 .PHONY : const_iterator.cpp.obj
 
 const_iterator.i: const_iterator.cpp.i
@@ -238,7 +238,7 @@ const_iterator.i: const_iterator.cpp.i
 
 # target to preprocess a source file
 const_iterator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/const_iterator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/const_iterator.cpp.i
 .PHONY : const_iterator.cpp.i
 
 const_iterator.s: const_iterator.cpp.s
@@ -247,7 +247,7 @@ const_iterator.s: const_iterator.cpp.s
 
 # target to generate assembly for a file
 const_iterator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/const_iterator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/const_iterator.cpp.s
 .PHONY : const_iterator.cpp.s
 
 iterator.obj: iterator.cpp.obj
@@ -256,7 +256,7 @@ iterator.obj: iterator.cpp.obj
 
 # target to build an object file
 iterator.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/iterator.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/iterator.cpp.obj
 .PHONY : iterator.cpp.obj
 
 iterator.i: iterator.cpp.i
@@ -265,7 +265,7 @@ iterator.i: iterator.cpp.i
 
 # target to preprocess a source file
 iterator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/iterator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/iterator.cpp.i
 .PHONY : iterator.cpp.i
 
 iterator.s: iterator.cpp.s
@@ -274,7 +274,7 @@ iterator.s: iterator.cpp.s
 
 # target to generate assembly for a file
 iterator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/iterator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/iterator.cpp.s
 .PHONY : iterator.cpp.s
 
 main.obj: main.cpp.obj
@@ -283,7 +283,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -292,7 +292,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -301,7 +301,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1.dir\build.make CMakeFiles/lab1.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -312,10 +312,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... lab1
-	@echo ... MyDll.obj
-	@echo ... MyDll.i
-	@echo ... MyDll.s
+	@echo ... untitled1
+	@echo ... MyDLL.obj
+	@echo ... MyDLL.i
+	@echo ... MyDLL.s
 	@echo ... _List.obj
 	@echo ... _List.i
 	@echo ... _List.s
