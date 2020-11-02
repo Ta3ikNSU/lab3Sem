@@ -2,7 +2,7 @@
 // Created by Ta3ik on 25.09.2020.
 //
 
-#include "MyDll.h"
+#include "LinkedList.h"
 
 LinkedList::_List::_List() {
     value = value_type();

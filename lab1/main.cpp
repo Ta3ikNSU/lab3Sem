@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include <iostream>
-#include "MyDll.h"
+#include "LinkedList.h"
 #include "catch.hpp"
 
 bool test1(){
@@ -10,7 +10,7 @@ bool test1(){
     int ans[2] = {7,5};
     int cout = 0;
     for(LinkedList::iterator k = f1.begin(); k!=f1.end(); k++, cout++){
-        if(k.value!=ans[cout]) return false;
+        if((*k)!=ans[cout]) return false;
     }
     return true;
 }
@@ -22,7 +22,7 @@ bool test2(){
     }
     LinkedList::iterator k = l1.end();
     k--;
-    if(*k == 8) return(true);
+    if(*k == 9) return(true);
     return(false);
 }
 
@@ -51,7 +51,7 @@ bool test4(){
     for(int i = 0; i < 20; i++) ans[i] = i + 1;
     int cout = 0;
     for(LinkedList::iterator k = l1.begin(); k!=l1.end(); k++, cout++){
-        if(k.value!=ans[cout]) return false;
+        if((*k)!=ans[cout]) return false;
     }
     return(true);
 }
@@ -76,11 +76,23 @@ bool test6(){
     LinkedList::iterator it1 = l1.begin();
     LinkedList::iterator it2 = l1.end();
     it2--;
+    it2--;
     l1.erase(it1,it2);
-    if(l1.size() == 2) return true;
+    if(l1.size() == 2) {
+        return true;
+    }
     return false;
 }
-
+/*
+int main(){
+    if(test1()!=true) return(false);
+    if(test2()!=true) return(false);
+    if(test3()!=true) return(false);
+    if(test4()!=true) return(false);
+    if(test5()!=true) return(false);
+    if(test6()!=true) return(false);
+}
+ */
 TEST_CASE(){
     REQUIRE(test1()==true);
     REQUIRE(test2()==true);
