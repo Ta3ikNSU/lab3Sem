@@ -6,9 +6,17 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.cpp
+LinkedList.h
+C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.h
+
 C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.h
 stdexcept
 -
+
+C:/Users/Ta3ik/CLionProjects/lab1_test/_List.cpp
+LinkedList.h
+C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.h
 
 C:/Users/Ta3ik/CLionProjects/lab1_test/catch.hpp
 chrono
@@ -375,6 +383,14 @@ vector
 -
 cstring
 -
+
+C:/Users/Ta3ik/CLionProjects/lab1_test/const_iterator.cpp
+LinkedList.h
+C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.h
+
+C:/Users/Ta3ik/CLionProjects/lab1_test/iterator.cpp
+LinkedList.h
+C:/Users/Ta3ik/CLionProjects/lab1_test/LinkedList.h
 
 C:/Users/Ta3ik/CLionProjects/lab1_test/main.cpp
 iostream

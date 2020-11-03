@@ -146,7 +146,6 @@ void LinkedList::push_front(const value_type &value) {
 LinkedList &LinkedList::operator+=(const LinkedList &other) {
     for (auto cur = (other._endOfList)->next; cur != other._endOfList; cur = cur->next) {
         push_back(cur->value);
-        _size++;
     }
     return (*this);
 }
