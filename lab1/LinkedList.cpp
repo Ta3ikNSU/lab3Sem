@@ -43,10 +43,11 @@ LinkedList &LinkedList::operator=(const LinkedList &other) {
 
 LinkedList &LinkedList::operator=(LinkedList &&other) {
     if (this == &other) return (*this);
+    clear();
     this->_endOfList = other._endOfList;
     other._endOfList = nullptr;
     other._size = 0;
-    delete other._endOfList;
+
     return (*this);
 }
 
