@@ -8,7 +8,7 @@ LinkedList::const_iterator::const_iterator() {
     const_node = nullptr;
 }
 
-LinkedList::const_iterator::const_iterator(LinkedList::_List* el) {
+LinkedList::const_iterator::const_iterator(LinkedList::_List *el) {
     const_node = el;
 }
 
@@ -18,15 +18,15 @@ LinkedList::const_iterator &LinkedList::const_iterator::operator=(const LinkedLi
 }
 
 bool LinkedList::const_iterator::operator!=(const LinkedList::const_iterator &other) const {
-    return(this->const_node->value != other.const_node->value);
+    return (this->const_node->value != other.const_node->value);
 }
 
 bool LinkedList::const_iterator::operator==(const LinkedList::const_iterator &other) const {
-    return(this->const_node->value == other.const_node->value);
+    return (this->const_node->value == other.const_node->value);
 }
 
 const value_type &LinkedList::const_iterator::operator*() const {
-    return( static_cast<const value_type&>(this->const_node->value));
+    return (this->const_node->value);
 }
 
 const value_type *LinkedList::const_iterator::operator->() const {
@@ -58,9 +58,9 @@ LinkedList::const_iterator LinkedList::const_iterator::operator--(int) {
 }
 
 LinkedList::const_iterator LinkedList::cbegin() const {
-    return(LinkedList::const_iterator(_endOfList->next));
+    return (LinkedList::const_iterator(_endOfList->next));
 }
 
 LinkedList::const_iterator LinkedList::cend() const {
-    return(LinkedList::const_iterator(_endOfList));
+    return (LinkedList::const_iterator(_endOfList));
 }

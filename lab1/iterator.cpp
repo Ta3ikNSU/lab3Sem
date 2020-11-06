@@ -9,12 +9,12 @@ LinkedList::iterator::iterator() {
     this->node = nullptr;
 }
 
-LinkedList::iterator::iterator(LinkedList::_List* el) {
+LinkedList::iterator::iterator(LinkedList::_List *el) {
     this->node = el;
 }
 
 LinkedList::iterator &LinkedList::iterator::operator=(const LinkedList::iterator &other) {
-    if(this->node == other.node) return(*this);
+    if (this->node == other.node) return (*this);
     this->node = other.node;
     return (*this);
 }
@@ -60,11 +60,11 @@ LinkedList::iterator LinkedList::iterator::operator--(int) {
 
 
 LinkedList::iterator LinkedList::begin() {
-    return(LinkedList::iterator(this->_endOfList->next));
+    return (LinkedList::iterator(this->_endOfList->next));
 }
 
 LinkedList::iterator LinkedList::end() {
-    return(LinkedList::iterator(this->_endOfList));
+    return (LinkedList::iterator(this->_endOfList));
 }
 
 LinkedList::iterator LinkedList::erase(LinkedList::iterator position) {
@@ -73,34 +73,22 @@ LinkedList::iterator LinkedList::erase(LinkedList::iterator position) {
     ret.node->prev->next = ret.node;
     delete position.node;
     _size--;
-    return(ret);
-}
-
-LinkedList::iterator LinkedList::erasePrivate(LinkedList::iterator position) {
-    LinkedList::iterator ret = LinkedList::iterator(position.node->next);
-    ret.node->prev = ret.node->prev->prev;
-    ret.node->prev->next = ret.node;
-    delete position.node;
-    _size--;
-    return(--ret);
+    return (ret);
 }
 
 LinkedList::iterator LinkedList::erase(LinkedList::iterator begin, LinkedList::iterator end) {
-    if(begin.node != _endOfList->next || end.node != _endOfList->prev) {
-        for (; begin != end; begin++) {
-            begin = erasePrivate(begin);
-        }
-        return (begin);
-    } else {
-        throw std::logic_error("use clear");
+    while (begin != end) {
+        begin = erase(begin);
     }
+    return (begin);
 }
 
 LinkedList::iterator LinkedList::insert(LinkedList::iterator &before, const value_type &value) {
-    _List* newList = new _List(value);
+    _List *newList = new _List(value);
     newList->next = before.node;
     newList->prev = (--before).node;
     (++before).node->prev->next = newList;
     before.node->prev = newList;
-    return(LinkedList::iterator(newList));
+    _size++;
+    return (LinkedList::iterator(newList));
 }

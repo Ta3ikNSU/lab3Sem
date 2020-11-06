@@ -35,7 +35,7 @@ public:
 
         _List *node;
 
-        explicit iterator(_List* el);
+        explicit iterator(_List *el);
 
 
     public:
@@ -69,7 +69,7 @@ public:
 
         const _List *const_node;
 
-        explicit const_iterator(_List* el);
+        explicit const_iterator(_List *el);
 
     public:
 
@@ -143,9 +143,7 @@ public:
     /* Модификаторы */
     //Удаляет элемент, на который указывает итератор pos. Возвращает итератор на следующий элемент
     iterator erase(iterator position);
-private:
-    //Удаляет элемент, на который указывает итератор pos. Возвращает итератор на предыдущий элемент
-    iterator erasePrivate(iterator position);
+
 
 public:
     //Удаляет элементы в интервале [begin, end).
@@ -180,7 +178,6 @@ public:
     friend bool operator!=(const LinkedList &left, const LinkedList &right);
 
     friend bool operator==(const LinkedList &left, const LinkedList &right);
-
 
 };
 
