@@ -2,12 +2,16 @@
 // Created by Ta3ik on 03.12.2020.
 //
 
-#include "Minus.h"
-#include "../Factory/OperationMaker.h"
-REGISTER_OPERATION(Minus, MINUS);
+#include "Sqrt.h"
+#include <cmath>
 
-void Minus::execute(std::list<std::string> &arg, Context & ctx) const {
-    if (ctx.stackSize() < 2)
+#include "../Factory/OperationMaker.h"
+
+
+REGISTER_OPERATION(Sqrt, SQRT);
+
+void Sqrt::execute(std::list<std::string> &arg, Context & ctx) const {
+    if (ctx.stackSize() < 1)
         throw std::logic_error("not enough arguments on the stack");
     else if (arg.size() != 0)
         throw std::logic_error("command doesn't need additional arguments");
@@ -15,10 +19,7 @@ void Minus::execute(std::list<std::string> &arg, Context & ctx) const {
         double arg1 = ctx.top();
         ctx.pop();
 
-        double arg2 = ctx.top();
-        ctx.pop();
-
-        double min = arg1 - arg2;
-        ctx.pushStack(min);
+        double s = sqrt(arg1);
+        ctx.pushStack(s);
     }
 }

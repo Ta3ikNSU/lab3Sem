@@ -2,11 +2,12 @@
 // Created by Ta3ik on 03.12.2020.
 //
 
-#include "Minus.h"
+#include "Multiplication.h"
 #include "../Factory/OperationMaker.h"
-REGISTER_OPERATION(Minus, MINUS);
 
-void Minus::execute(std::list<std::string> &arg, Context & ctx) const {
+REGISTER_OPERATION(Multiplication, MULTIPLICATION);
+
+void Multiplication::execute(std::list<std::string> &arg, Context & ctx) const {
     if (ctx.stackSize() < 2)
         throw std::logic_error("not enough arguments on the stack");
     else if (arg.size() != 0)
@@ -18,7 +19,7 @@ void Minus::execute(std::list<std::string> &arg, Context & ctx) const {
         double arg2 = ctx.top();
         ctx.pop();
 
-        double min = arg1 - arg2;
-        ctx.pushStack(min);
+        double mul = arg1 * arg2;
+        ctx.pushStack(mul);
     }
 }

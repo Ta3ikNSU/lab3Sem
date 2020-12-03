@@ -30,7 +30,7 @@ bool Context::checkConst(std::string &name) {
     return false;
 }
 
-bool Context::getConst(std::string & name) {
+double Context::getConst(std::string & name) {
     auto it = vars.find(name);
     return it->second;
 }

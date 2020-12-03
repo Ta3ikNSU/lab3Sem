@@ -2,14 +2,13 @@
 // Created by Ta3ik on 03.12.2020.
 //
 
-#ifndef UNTITLED3_PLUS_H
-#define UNTITLED3_PLUS_H
+#ifndef UNTITLED5_DIVISION_H
+#define UNTITLED5_DIVISION_H
 
 #include "../Interface/IOperation.h"
 
-class Plus : public IOperation {
+class Division : public IOperation {
     void execute(std::list<std::string> &arg, Context & ctx) const override;
 };
 
-
-#endif //UNTITLED3_PLUS_H
+#endif //UNTITLED5_DIVISION_H

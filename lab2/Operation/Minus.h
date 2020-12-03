@@ -7,7 +7,7 @@
 
 #include "../Interface/IOperation.h"
 
-class Minus : public IOperation{
+class Minus : public IOperation {
     void execute(std::list<std::string> &arg, Context & ctx) const override;
 };
 

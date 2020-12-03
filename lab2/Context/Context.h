@@ -22,7 +22,7 @@ public:
     void pushConst(std::string & name, double & el);
     bool checkConst(std::string & name);
 
-    bool getConst(std::string &name);
+    double getConst(std::string &name);
 };
 
 
