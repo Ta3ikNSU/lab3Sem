@@ -5,9 +5,10 @@
 #ifndef UNTITLED3_PLUS_H
 #define UNTITLED3_PLUS_H
 
+#include "../Interface/IOperation.h"
 
-class Plus {
-
+class Plus : public IOperation{
+    void execute(std::list<std::string> &arg, Context & ctx) const override;
 };
 
 
