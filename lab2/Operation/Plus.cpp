@@ -5,7 +5,7 @@
 #include "Plus.h"
 #include "../Factory/OperationMaker.h"
 
-REGISTER_OPERATION(Plus, PLUS);
+REGISTER_OPERATION(Plus, +);
 
 void Plus::execute(std::list<std::string> &arg, Context & ctx) const {
     if (ctx.stackSize() < 2)

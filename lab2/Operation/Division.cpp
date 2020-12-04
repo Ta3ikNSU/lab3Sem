@@ -5,7 +5,7 @@
 #include "Division.h"
 #include "../Factory/OperationMaker.h"
 
-REGISTER_OPERATION(Division, DIVISION);
+REGISTER_OPERATION(Division, /);
 
 void Division::execute(std::list<std::string> &arg, Context & ctx) const {
     if (ctx.stackSize() < 2)

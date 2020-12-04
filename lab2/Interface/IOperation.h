@@ -15,7 +15,7 @@ class IOperation {
 public:
     virtual void execute(std::list<std::string> &arg, Context & ctx) const = 0;
 
-    virtual ~IOperation() {};
+    virtual ~IOperation() = default;
 };
 
 

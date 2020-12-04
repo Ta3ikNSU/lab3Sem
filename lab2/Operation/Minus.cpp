@@ -4,7 +4,7 @@
 
 #include "Minus.h"
 #include "../Factory/OperationMaker.h"
-REGISTER_OPERATION(Minus, MINUS);
+REGISTER_OPERATION(Minus, -);
 
 void Minus::execute(std::list<std::string> &arg, Context & ctx) const {
     if (ctx.stackSize() < 2)

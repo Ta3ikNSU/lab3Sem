@@ -17,6 +17,6 @@ void Print::execute(std::list<std::string> &arg, Context & ctx) const {
     else if (arg.size() != 0)
         throw std::logic_error("command doesn't need additional arguments");
     else {
-        std::cout << ctx.top();
+        std::cout << ctx.top() << std::endl;
     }
 }

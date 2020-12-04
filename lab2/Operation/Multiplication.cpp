@@ -5,7 +5,7 @@
 #include "Multiplication.h"
 #include "../Factory/OperationMaker.h"
 
-REGISTER_OPERATION(Multiplication, MULTIPLICATION);
+REGISTER_OPERATION(Multiplication, *);
 
 void Multiplication::execute(std::list<std::string> &arg, Context & ctx) const {
     if (ctx.stackSize() < 2)
