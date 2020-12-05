@@ -6,11 +6,13 @@
 #include "Define.h"
 #include "../Factory/OperationMaker.h"
 
+#include "../Exceptions/arg_command_error.h"
+
 REGISTER_OPERATION(Define, DEFINE);
 
 void Define::execute(std::list<std::string> &arg, Context & ctx) const {
     if (arg.size() != 2)
-        throw std::logic_error("command need 2 arguments");
+        throw arg_command_error("command need 2 arguments");
     else {
         std::string nameOfNewVal = arg.begin()->data();
         double newVal = std::stod((++(arg.begin()))->data());

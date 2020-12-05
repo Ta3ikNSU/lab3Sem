@@ -4,9 +4,12 @@
 
 #include "OperationFactory.h"
 
-#include "../Exceptions/FactoryException.h"
+#include "../Exceptions/const_error.h"
+#include "../Exceptions/arg_command_error.h"
+#include "../Exceptions/operation_error.h"
+#include "../Exceptions/stack_error.h"
 
-OperationFactory &OperationFactory::getInstance() {
+OperationFactory &OperationFactory::getInstance() noexcept {
     static OperationFactory factory;
     return factory;
 }
@@ -14,7 +17,7 @@ OperationFactory &OperationFactory::getInstance() {
 IOperation *OperationFactory::create(const std::string &operationName) const {
     auto i = _makers.find(operationName);
     if (i == _makers.end()) {
-        throw std::logic_error("unknown operation name");
+        throw operation_error("unknown operation name");
     }
     IOperationMaker *maker = i->second;
     return (maker->create(operationName));
@@ -22,7 +25,7 @@ IOperation *OperationFactory::create(const std::string &operationName) const {
 
 void OperationFactory::RegisterMaker(const std::string &operationName, IOperationMaker *maker) {
     if (_makers.find(operationName) != _makers.end()) {
-        throw std::logic_error("Block already exists" + operationName);
+        throw operation_error("Operation already exists" + operationName);
     }
     _makers[operationName] = maker;
 }

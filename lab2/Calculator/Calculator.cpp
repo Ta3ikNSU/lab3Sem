@@ -1,15 +1,9 @@
 //
 // Created by Ta3ik on 04.12.2020.
 //
+#include <memory>
 
 #include "Calculator.h"
-
-#include "../Operation/Push.h"
-#include "../Operation/Plus.h"
-#include "../Operation/Minus.h"
-#include "../Operation/Define.h"
-#include "../Operation/Division.h"
-#include "../Operation/Print.h"
 
 
 Calculator::Calculator() {
@@ -31,12 +25,16 @@ double Calculator::calculate(std::istream &stream) {
                 std::string newArg;
                 if(index != std::string::npos) newArg = inputLine.substr(0,index);
                 else newArg = inputLine.substr(0);
-                args.push_back(newArg);
+                if(newArg != "") args.push_back(newArg);
             }
         }
-        IOperation* operation = OperationFactory::getInstance().create(commandName);
-        operation->execute(args, context);
-        delete operation;
+        try {
+            std::unique_ptr<IOperation> operation(OperationFactory::getInstance().create(commandName));
+            operation->execute(args, context);
+        } catch (const std::exception &ex) {
+            std::cerr << ex.what() << std::endl;
+        }
     }
     return context.top();
 }
+

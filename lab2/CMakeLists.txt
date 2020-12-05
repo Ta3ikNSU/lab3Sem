@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(untitled5 main.cpp
         Calculator/Calculator.h Calculator/Calculator.cpp
         Context/Context.cpp Context/Context.h
-        Exceptions/FactoryException.cpp Exceptions/FactoryException.h
+        Exceptions/CalculatorException.h
         Factory/OperationMaker.h Factory/OperationFactory.cpp Factory/OperationFactory.h
         Interface/IOperation.h Interface/IOperationMaker.h
         Operation/Plus.h Operation/Plus.cpp

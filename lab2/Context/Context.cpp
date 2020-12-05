@@ -4,33 +4,34 @@
 
 #include "Context.h"
 
-int Context::stackSize() {
+#include "../Exceptions/const_error.h"
+int Context::stackSize() noexcept {
     return stack.size();
 }
 
-double Context::top() {
+double Context::top() noexcept {
     return(stack.top());
 }
 
-void Context::pop() {
+double Context::pop() noexcept {
+    double temp = stack.top();
     stack.pop();
+    return(temp);
 }
 
-void Context::pushStack(double & el) {
+void Context::pushStack(double & el) noexcept {
     stack.push(el);
 }
 
-void Context::pushConst(std::string & name, double &el) {
+void Context::pushConst(std::string & name, double &el) noexcept {
     vars[name] = el;
 }
 
-bool Context::checkConst(std::string &name) {
-    auto it = vars.find(name);
-    if(it!=vars.end()) return true;
-    return false;
-}
 
 double Context::getConst(std::string & name) {
     auto it = vars.find(name);
-    return it->second;
+    if(it!=vars.end())
+        throw const_error("const not found");
+    else return it->second;
 }
+

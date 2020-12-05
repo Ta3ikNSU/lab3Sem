@@ -11,7 +11,7 @@
 
 class OperationFactory {
 public:
-    static OperationFactory &getInstance();
+    static OperationFactory &getInstance() noexcept;
 
     IOperation *create(const std::string &operationName) const;
 
