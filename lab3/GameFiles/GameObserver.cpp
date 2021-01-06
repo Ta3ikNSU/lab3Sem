@@ -25,9 +25,20 @@ void GameObserver::printField(GameModel * model) {
         }
         std::cout<<std::endl;
     }
-
     std::cout << "-------------";
     for(int i = 0; i < 5; i++){
         std::cout << std::endl;
+    }
+}
+
+void GameObserver::analyzer(GameModel &model) {
+    if (model.getGameStatus() == GameStatus::x_WIN) {
+        std::cout << "x - win \n GG";
+    } else {
+        if (model.getGameStatus() == GameStatus::o_WIN) {
+            std::cout << "0 - win \n GG";
+        } else {
+            std::cout << "Draw";
+        }
     }
 }

@@ -14,6 +14,7 @@ class GameModel;
 class GameObserver {
 public:
     void printField(GameModel *model);
+    void analyzer(GameModel &model);
 };
 
 

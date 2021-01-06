@@ -5,7 +5,7 @@
 #include "GameSession.h"
 #include <map>
 
-std::shared_ptr<Player> GameSession::defineTypePlayer() {
+std::shared_ptr<Player> GameSession::defineTypePlayer(char sign) {
     std::shared_ptr<Player> Player;
     std::string input;
     bool undefinedType = true;
@@ -24,37 +24,27 @@ std::shared_ptr<Player> GameSession::defineTypePlayer() {
             }
         }
     }
+    Player->setSign(sign);
     return Player;
 }
 
 void GameSession::startGame() {
-    std::map<char, std::shared_ptr<Player>> Players;
     std::cout << "Enter the type of player who will play with the cross" << std::endl;
-    Players['x'] = defineTypePlayer();
-    Players['x']->setSign('x');
+    ctx.model.addPlayer('x',defineTypePlayer('x'));
     std::cout << "Enter the type of player who will play with the zero" << std::endl;
-    Players['o'] = defineTypePlayer();
-    Players['o']->setSign('o');
-
+    ctx.model.addPlayer('o',defineTypePlayer('o'));
 
     ctx.model.addObserver(ctx.observer);
-    std::shared_ptr<Player> curPlayer = Players['x'];
+    char curSign = 'x';
 
     while (ctx.model.getGameStatus() == GameStatus::IN_PROCESS) {
-        std::pair<int, int> curMove;
-        std::cout << "Now " << curPlayer->getSign() << std::endl;
-        curMove = curPlayer->move(ctx.model);
-        ctx.controller.updateRequest(curMove, &ctx.model, curPlayer->getSign());
-        if (curPlayer->getSign() == 'x') curPlayer = Players['o'];
-        else curPlayer = Players['x'];
-    }
-    if (ctx.model.getGameStatus() == GameStatus::x_WIN) {
-        std::cout << "x - win \n GG";
-    } else {
-        if (ctx.model.getGameStatus() == GameStatus::o_WIN) {
-            std::cout << "0 - win \n GG";
-        } else {
-            std::cout << "Draw";
+        std::cout << "Now " << curSign << std::endl;
+        moveStatus rc = ctx.model.doMove(curSign);
+        while(MOVE_IS_CORRECT != rc){
+            rc = ctx.model.doMove(curSign);
         }
+        if (curSign == 'x') curSign = 'o';
+        else curSign = 'x';
     }
+    ctx.observer.analyzer(ctx.model);
 }

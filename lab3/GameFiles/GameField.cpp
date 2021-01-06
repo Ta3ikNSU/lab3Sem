@@ -18,28 +18,28 @@ GameField::GameField() {
 
 CellStatus GameField::getCellStatus(int x, int y) {
     if(x >= sizeField || y>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     return field[x][y].status;
 }
 
 void GameField::setCellStatus(int x, int y, CellStatus newStatus) {
     if(x >= sizeField || y>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     field[x][y].status = newStatus;
 }
 
 CellStatus GameField::getCellStatus(std::pair<int, int> move) {
     if(move.first >= sizeField || move.second>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     return getCellStatus(move.first, move.second);
 }
 
 void GameField::setCellStatus(std::pair<int, int> move, CellStatus newStatus) {
     if(move.first >= sizeField || move.second>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     setCellStatus(move.first, move.second, newStatus);
 }

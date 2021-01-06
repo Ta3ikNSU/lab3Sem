@@ -19,18 +19,18 @@ void GameModel::addObserver(GameObserver newObserver) {
 
 void GameModel::setCellStatus(std::pair<int, int> move, CellStatus newStatus) {
     if(move.first >= sizeField || move.second>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     if (field.getCellStatus(move) != CellStatus::Empty) {
         throw empty_cell("Cell not empty");
     } else {
-        field.setCellStatus(move, newStatus);
+        field.setCellStatus(move.first, move.second, newStatus);
     }
 }
 
 void GameModel::setCellStatus(int x, int y, CellStatus newStatus) {
     if(x >= sizeField || y>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     if (field.getCellStatus(x, y) != CellStatus::Empty) {
         throw empty_cell("Cell not empty");
@@ -41,20 +41,20 @@ void GameModel::setCellStatus(int x, int y, CellStatus newStatus) {
 
 CellStatus GameModel::getCellStatus(std::pair<int, int> move) {
     if(move.first >= sizeField || move.second>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
-    return field.getCellStatus(move);
+    return field.getCellStatus(move.first, move.second);
 }
 
 CellStatus GameModel::getCellStatus(int x, int y) {
     if(x >= sizeField || y>=sizeField){
-        throw wrong_coord("Cord is wrong");
+        throw wrong_coord("Cord is wrong. Try again");
     }
     return field.getCellStatus(x, y);
 }
 
 
-void GameModel::update() {
+void GameModel::notify() {
     for (GameObserver observer: observers) {
         observer.printField(this);
     }
@@ -129,4 +129,26 @@ bool GameModel::checkDraw() {
 GameModel::GameModel() {
     curGameStatus.status = GameStatus::IN_PROCESS;
 }
+
+void GameModel::addPlayer(char sign, std::shared_ptr<Player> newPlayer) {
+    Players[sign] = newPlayer;
+}
+
+moveStatus GameModel::doMove(char playersSign) {
+    std::pair<int, int> curMove;
+    curMove = Players[playersSign]->move(*this);
+    CellStatus newStatus;
+    if (playersSign == 'x') newStatus = CellStatus::Cross;
+    else newStatus = CellStatus::Zero;
+    try {
+        this->setCellStatus(curMove, newStatus);
+        this->notify();
+        return MOVE_IS_CORRECT;
+    } catch (const std::exception &ex) {
+        std::cerr << ex.what() << std::endl;
+        return MOVE_IS_WRONG;
+    }
+}
+
+
 

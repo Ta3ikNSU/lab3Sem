@@ -3,9 +3,18 @@
 
 #include "../GameFiles/GameObserver.h"
 #include "../GameFiles/GameField.h"
+#include "../Players/Player.h"
 #include <list>
+#include <memory>
+#include <map>
 
 class GameObserver;
+class Player;
+
+enum moveStatus{
+    MOVE_IS_CORRECT,
+    MOVE_IS_WRONG
+};
 
 enum class GameStatus {
     IN_PROCESS,
@@ -19,6 +28,9 @@ struct Status {
 };
 
 class GameModel {
+
+    std::map<char, std::shared_ptr<Player>> Players;
+
     GameField field;
 
     void gameAnalysis();
@@ -42,7 +54,7 @@ public:
 
     GameField &getField();
 
-    void update();
+    void notify();
 
     void addObserver(GameObserver newObserver);
 
@@ -54,6 +66,9 @@ public:
 
     CellStatus getCellStatus(int x, int y);
 
+    void addPlayer(char sign, std::shared_ptr<Player> newPlayer);
+
+    moveStatus doMove(char playersSign);
 };
 
 #endif //LAB3_GAMEMODEL_H

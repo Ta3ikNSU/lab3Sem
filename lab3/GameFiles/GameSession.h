@@ -15,7 +15,7 @@
 class GameSession {
     Context ctx;
 
-    std::shared_ptr<Player> defineTypePlayer();
+    std::shared_ptr<Player> defineTypePlayer(char sign);
 
 public:
     void startGame();

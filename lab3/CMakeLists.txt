@@ -4,7 +4,6 @@ project(lab3)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(lab3 main.cpp
-        GameController/Controller.cpp GameController/Controller.h
         GameFiles/GameModel.h GameFiles/GameModel.cpp
         GameFiles/GameField.h GameFiles/GameField.cpp
         GameFiles/GameObserver.h GameFiles/GameObserver.cpp

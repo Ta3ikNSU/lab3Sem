@@ -6,12 +6,10 @@
 #define LAB3_CONTEXT_H
 
 #include "GameFiles/GameModel.h"
-#include "GameController/Controller.h"
 
 class Context {
 public:
     GameModel model;
-    Controller controller;
     GameObserver observer;
 };
 

@@ -9,6 +9,8 @@
 #include <iostream>
 #include "../GameFiles/GameModel.h"
 
+class GameModel;
+
 class Player {
 protected:
     char sign;
