@@ -32,7 +32,10 @@ class GameModel {
     bool checkDraw();
 
 public:
+    GameModel();
+
     Status curGameStatus;
+
     std::list<GameObserver> observers;
 
     GameStatus getGameStatus();

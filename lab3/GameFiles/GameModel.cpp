@@ -126,3 +126,7 @@ bool GameModel::checkDraw() {
     return true;
 }
 
+GameModel::GameModel() {
+    curGameStatus.status = GameStatus::IN_PROCESS;
+}
+

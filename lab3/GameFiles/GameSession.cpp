@@ -3,12 +3,13 @@
 //
 
 #include "GameSession.h"
+#include <map>
 
-
-std::shared_ptr<Player> GameSession::defineTypePlayer(char &sign) {
+std::shared_ptr<Player> GameSession::defineTypePlayer() {
     std::shared_ptr<Player> Player;
     std::string input;
     bool undefinedType = true;
+    std::cout << "Human or Bot?" << std::endl;
     while (undefinedType) {
         std::getline(std::cin, input);
         if (input == "BOT" || input == "Bot" || input == "bot") {
@@ -23,41 +24,29 @@ std::shared_ptr<Player> GameSession::defineTypePlayer(char &sign) {
             }
         }
     }
-    std::cout << "This player will play with " << sign << std::endl;
-    std::cout << "Want to change its symbol? Y/N" << std::endl;
-    std::getline(std::cin, input);
-    if (input == "Y") {
-        if (sign == 'x') {
-            Player->setSign('o');
-        } else {
-            Player->setSign('x');
-        }
-    } else {
-        Player->setSign(sign);
-        sign = 'o';
-    }
     return Player;
 }
 
 void GameSession::startGame() {
-    std::cout << "Enter type of 1st Player" << std::endl;
-    std::cout << "Human or Bot?" << std::endl;
-    char freeSign = 'x';
-    std::shared_ptr<Player> Player1st = defineTypePlayer(freeSign);
-    std::cout << "Enter type of 2nd Player" << std::endl;
-    std::cout << "Human or Bot?" << std::endl;
-    std::shared_ptr<Player> Player2nd = defineTypePlayer(freeSign);
+    std::map<char, std::shared_ptr<Player>> Players;
+    std::cout << "Enter the type of player who will play with the cross" << std::endl;
+    Players['x'] = defineTypePlayer();
+    Players['x']->setSign('x');
+    std::cout << "Enter the type of player who will play with the zero" << std::endl;
+    Players['o'] = defineTypePlayer();
+    Players['o']->setSign('o');
 
 
     ctx.model.addObserver(ctx.observer);
-    std::shared_ptr<Player> curPlayer = Player1st;
+    std::shared_ptr<Player> curPlayer = Players['x'];
+
     while (ctx.model.getGameStatus() == GameStatus::IN_PROCESS) {
         std::pair<int, int> curMove;
         std::cout << "Now " << curPlayer->getSign() << std::endl;
         curMove = curPlayer->move(ctx.model);
         ctx.controller.updateRequest(curMove, &ctx.model, curPlayer->getSign());
-        if (curPlayer == Player1st) curPlayer = Player2nd;
-        else curPlayer = Player1st;
+        if (curPlayer->getSign() == 'x') curPlayer = Players['o'];
+        else curPlayer = Players['x'];
     }
     if (ctx.model.getGameStatus() == GameStatus::x_WIN) {
         std::cout << "x - win \n GG";

@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.17)
+# cmake_minimum_required(VERSION <specify CMake version here>)
 project(lab3)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 
 add_executable(lab3 main.cpp
         GameController/Controller.cpp GameController/Controller.h
